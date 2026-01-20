@@ -82,6 +82,7 @@ The Python implementation is organized into modular files:
 - `ratecst.py`: Implements the TST rate constant calculation
 - `run.py`: Generates rate constants over the temperature range
 - `requirements.txt`: Lists dependencies (numpy and matplotlib)
+- `gen_typcst.py`: Generates values for the report
 
 = Partition Function Calculations
 
