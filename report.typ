@@ -7,14 +7,14 @@
 #set text(font: "xits")
 #set cite(style: "ieee")
 #show: project.with(
-  title: "Numerical homework: rate constant using the transition state theory",
+  title: "Numerical homework: Rate constant using the Transition State Theory",
   subtitle: "CHIM9308-1 Physical Chemistry",
   authors: (
-    "Loïc Delbarre",
+    "Loïc DELBARRE",
     "S215072"
   ),
   school-logo: image("ulgfsa.svg"),
-  jury: ("Bernard Leyh",),
+  jury: ("Bernard LEYH",),
   juryname: "Professor",
   branch: "Engineering physics",
   academic-year: "2025-2026",
@@ -42,7 +42,7 @@
 
 This report presents the calculation of the rate constant for the elementary gas phase exchange reaction:
 
-$ "H"_(g) + "HBr"_(g) -> "H"_2(g) + "Br"_(g) $
+$ "H"_((g)) + "HBr"_((g)) -> "H"_(2(g)) + "Br"_((g)) $
 
 using Transition State Theory (TST) over the temperature range 300-1000 K. The transition state is assumed to be linear with the configuration H-H-Br.
 
@@ -50,9 +50,9 @@ using Transition State Theory (TST) over the temperature range 300-1000 K. The t
 
 == Transition State Theory
 
-Transition State Theory, provides a framework for calculating rate constants from molecular properties. The fundamental TST equation is:
+Transition State Theory provides a framework for calculating rate constants from molecular properties. The fundamental TST equation is:
 
-$ k(T) = frac(k_B T, h) frac(Z^‡, Z_"H" Z_"HBr") exp(-frac(E_0, k_B T)) $ <tst-equation>
+$ k(T) = frac(k_B T, h) times frac(Z^‡, Z_"H" Z_"HBr") times exp(-frac(E_0, k_B T)) $ <tst-equation>
 
 where:
 - $k_B$ is the Boltzmann constant (#const_kB J/K)
@@ -61,14 +61,20 @@ where:
 - $Z_"H"$ and $Z_"HBr"$ are the partition functions of the reactants
 - $E_0$ is the activation energy barrier (#mol_E0_eV eV)
 
-The partition functions are expressed per unit volume to maintain dimensional consistency.
+The partition functions $Z$ are expressed per unit volume $V$ to maintain dimensional consistency.
 
 == Molecular Partition Functions
 
-The total partition function for a molecule is factored into contributions from different degrees of freedom:
+The total partition function for a molecule is factored into the contributions from different degrees of freedom:
 
 $ Z = z_"trans" dot z_"rot" dot z_"vib" dot z_"elec" $
 
+where:
+- $z_"trans"$ is the contribution from translational degrees of freedom.
+- $z_"rot"$ is the contribution from rotational degrees of freedom.
+- $z_"vib"$ is contribution from vibrational degrees of freedom.
+- $z_"elec"$ is contribution from electronic degrees of freedom.
+  
 Each contribution is calculated separately as described in the following sections.
 
 = Computational Methodology
@@ -88,7 +94,7 @@ The Python implementation is organized into modular files:
 
 == Translational Partition Function
 
-The translational partition function per unit volume for a molecule of mass $m$ at temperature $T$ is:
+The translational partition function $z_"trans"$ per unit of volume $V$ for a molecule of mass $m$ at temperature $T$ is:
 
 #theorem-box(title: "Translational Partition Function")[
 $ frac(z_"trans", V) = (frac(2 pi m k_B T, h^2))^(3\/2) $
@@ -111,7 +117,7 @@ For a diatomic molecule, the moment of inertia is calculated from the reduced ma
 $ I = mu R^2 "where" mu = frac(m_1 m_2, m_1 + m_2) $
 ]
 
-The rotational temperature is:
+The rotational temperature $theta_"rot"$ is:
 $ theta_"rot" = frac(h^2, 8 pi^2 k_B I) $
 
 The rotational partition function for a heteronuclear diatomic molecule is:
@@ -220,7 +226,7 @@ $ Z^‡ / V = (z_"trans" / V) dot z_"rot" dot z_"vib" dot z_"elec" = #Z_TS_V_fmt
 
 == TST Rate Constant at 300 K
 
-Using equation @tst-equation with the calculated partition functions:
+Using @tst-equation with the calculated partition functions:
 
 *Step 1: Prefactor*
 $ frac(k_B T, h) = #rate_prefactor "s"^(-1) $
@@ -244,7 +250,9 @@ The rate constant was calculated over the temperature range 300-1000 K with 50 K
 
 #figure(
   image("tst_rate_constants.pdf", width: 100%),
-  caption: [Rate constant vs temperature. The exponential increase reflects the Boltzmann factor dominance over the partition function ratio changes.]
+  caption: [
+Graphical evolution of the rate constant with respect to the temperature
+  ]
 )
 
 #let results = csv("result.csv")
