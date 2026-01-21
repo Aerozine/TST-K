@@ -208,9 +208,9 @@ The electronic partition function is the degeneracy of the ground electronic sta
 $ z_"elec" = g $
 
 *Given degeneracies:*
-- H atom: $g_"H" = #mol_g_H$ (doublet ground state, ${}^2 S$)
-- HBr molecule: $g_"HBr" = #mol_g_HBr$ (singlet ground state)
-- Transition state: $g^‡ = #mol_g_TS$ (doublet, conserving electron spin)
+- H atom: $g_"H" = #mol_g_H$
+- HBr molecule: $g_"HBr" = #mol_g_HBr$
+- Transition state: $g^‡ = #mol_g_TS$
 
 = Rate Constant Calculation
 
