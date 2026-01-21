@@ -14,8 +14,6 @@
     "S215072"
   ),
   school-logo: image("ulgfsa.svg"),
-  jury: ("Bernard LEYH",),
-  juryname: "Professor",
   branch: "Engineering physics",
   academic-year: "2025-2026",
   tof: false,
@@ -44,7 +42,7 @@ This report presents the calculation of the rate constant for the elementary gas
 
 $ "H"_((g)) + "HBr"_((g)) -> "H"_(2(g)) + "Br"_((g)) $
 
-using Transition State Theory (TST) over the temperature range 300-1000 K. The transition state is assumed to be linear with the configuration H-H-Br.
+Using Transition State Theory (TST) over the temperature range 300-1000 K. The transition state is assumed to be linear with the configuration H-H-Br.
 
 = Theoretical Background
 
